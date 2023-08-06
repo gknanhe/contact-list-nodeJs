@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <script src="https://kit.fontawesome.com/0dc53eee16.js" crossorigin="anonymous"></script>
+
+
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1 id="page-heading"><span><i class="fa-solid fa-address-book"></i></span>My Contact List </h1>
+            <div class="contacts">
+                <% for ( let i of contact_list) { %>
+                    <div class="contact_list">
+                        <div class="contact">
+                            <i class="fa-solid fa-user"></i>
+                            <div class="name">
+                                <%= i.name %>
+                            </div>
+                            <i class="fa-solid fa-phone"></i>
+                            <div class="nbr">
+                                <%= i.phone %>
+                            </div>
+                            <div class="delete-btn">
+                                <!-- <a href="/delete-contact/<%= i.name %>"> -->
+                                <a href="/delete-contact/?id=<%= i.id %> ">
+
+                                    <!-- <i class="fa fa-trash-o"></i> -->
+                                    <i class="fa-sharp fa-solid fa-trash"></i>
+            
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <%}%>
+            </div>
+        
+
+        <form action="/contactForm" method="post">
+            <div class="inputfild">
+                <input type="text" name="name" placeholder="Enter Name" required>
+                <input type="number" name="phone" placeholder="Enter No." required>
+                
+            </div>
+
+            <button type="submit"> Add Contact</button>
+
+        </form>
+        </div>
+        
+
+        <script type="text/javascript" src="/js/home.js"></script>
+    </body>
+    </html>
